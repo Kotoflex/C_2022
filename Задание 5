@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+#define N 10
+double SquaredSum(double x, double y)
+{
+	return (x + y)*(x + y);
+}
+void Sort(int a[N])
+{
+	int fl = 1;
+	//Сортировка пузырьком
+	while (fl)	//Продолжать пока флаг установлен
+	{
+		fl = 0;		//сбросить флаг
+		for (int i = 0; i<N - 1; i++)	//Очередной проход по массиву
+			if (a[i]<a[i + 1])		//Если текущий элемент меньше следующего
+			{
+				int tmp = a[i];		//поменять их местами
+				a[i] = a[i + 1];
+				a[i + 1] = tmp;
+				fl = 1;			//установить флаг
+			}
+	}
+
+}
+int main()
+{
+	cout << SquaredSum(12, 6) << "\n";
+	cout << SquaredSum(12, -6) << "\n";
+	int a[N] = { 1,8,3,6,5,4,9,2,8,12 };
+	Sort(a);
+	return 0;
+}
