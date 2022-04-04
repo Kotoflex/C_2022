@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	char s[256];
+	cout << "Введите строку: ";
+	cin.getline(s, sizeof(s));
+	for (char *p = s; *p; p++)
+	{
+		(*p)++;
+	}
+	cout << "Результат: " << s << "\n";
+	system("pause");
+	return 0;
+}
