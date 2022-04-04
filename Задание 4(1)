@@ -1,0 +1,15 @@
+#include iostream
+using namespace std;
+int main()
+{
+	char nums[] = { Ноль,Один, Два, Три, Четыре, Пять, Шесть, Семь, Восемь, Девять };
+	cout  Введите число ;
+	int n;
+	cin  n;
+	if (n = 0 && n = 9)
+		cout  nums[n]  n;
+	else
+		cout  Не знаюn;
+	system(pause);
+	return 0;
+}
