@@ -1,0 +1,19 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+ cout << "Перебираем числа от 1 до 1000 с шагом 4 и находим сумму всех чисел, которые делятся на 7 без остатка\n";
+    cout << " \n";
+    int a = 1;
+    int sum = 0;
+    do {
+        if (a % 7 == 0){
+            sum = sum + a;
+        }
+        a = a + 4;
+    } while (a < 1001);
+    cout << "Сумма чисел, делящихся на 7 " << sum;
+    return 0;
+}
