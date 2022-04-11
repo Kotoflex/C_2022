@@ -1,0 +1,24 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+void reversit(char [1000]);
+int main ()
+{setlocale(LC_ALL,"Rus");
+cout<<"Введите то, что хотите ревёрснуть->";
+char a[1000];
+cin.get(a,1000);
+reversit(a);
+cin.get();
+return 0;
+}
+void reversit(char b[1000])
+{int a1,a2,a3;
+char c[1000];
+a1=strlen(b);
+a3=a1;
+for(a2=0;a2<a1;a2++,a3--)
+c[a2]=b[a3-1];
+c[a2] = 0;
+cout<<c;
+ 
+}
