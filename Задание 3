@@ -1,28 +1,37 @@
-#include <iostream>
-#include <fstream>
+#include<fstream>
+#include<iostream>
+#include <string>
 using namespace std;
-
 int main()
 {
-    int a, b, c;
-    cout << "Введите два числа (второе больше первого): ";
-    cin >> a >> b;
-    int raz = b - a;
-    ofstream file("Output");
-    for (a; a < b+1; a++){
-        file << a * 3 << "\n";
+    ofstream fout("Файлик");
+     cout << "Введите первое число:";
+    int a, b;
+    cin >> a; 
+    cout << "Введите первое число, но большее, чем первое:";
+    cin >> b;
+    if (b>a);
+	else
+		cout << "Всё фигня, начинаем заново(второе число > первого)";
+		if (b>a);
+		else
+		return 0;
+    for (int i = a; i <= b ; i++)
+    {
+        fout << i * 3 << endl;
     }
-    file.close();
-    
-    
-    cout << "Результат: \n";
-    int cif;
-    int nom = 1;
-    ifstream file1("Output");
-    while(nom <= raz + 1){
-        file1 >> cif;
-        cout << nom++ << ". " << cif << "\n";
-    }
-    file1.close();
-    return 0;
+    fout.close();
+
+string line;
+int itog;
+ifstream file ("Файлик");
+if (file.is_open()) {
+itog = 0;
+cout << "Полученные значения: \n";
+while ( getline (file, line) ) {
+cout << ++itog << ". ";
+cout << line << '\n';
+}
+file.close();
+}
 }
