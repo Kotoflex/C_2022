@@ -9,7 +9,7 @@ int main()
 	{
 		(*p)++;
 	}
+		cout << "Сдвигаем строку \n ";
 	cout << "Результат: " << s << "\n";
-	system("pause");
 	return 0;
 }
