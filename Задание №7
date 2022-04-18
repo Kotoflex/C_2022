@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <iostream>
+using namespace std ;
+class Bucket
+{
+  int volume;
+  int used;
+  public:
+    Bucket(int v, int u) 
+    {
+      volume = v;
+      used = u;
+    }
+     int get_volume();
+     int get_used();
+   int fill(int litr);
+    int flush();
+};
+int Bucket::get_volume()
+{
+  return volume;
+}
+int Bucket::get_used() 
+{
+  return used;
+}
+int Bucket::flush()
+{
+  used = 0;
+  return 0;
+}
+int Bucket::fill(int litr) 
+{
+  int free = volume - used;
+  if (litr > free) 
+  {
+    used = volume;
+    int raz = litr - free;
+    cout << raz << " литр(а/ов) разлилось, объема ведра не хватило"<<"\n";
+    return raz;
+  };
+  used = used + litr;
+  return 0;
+}
+int main ()
+{
+  int litri;
+  Bucket vedro(10, 0);
+  cout << "Объём ведра (в литрах) - " << vedro.get_volume() << "\n";
+  cout << "Сколько налито (литров) - " << vedro.get_used() << "\n";
+
+  cout << "На сколько хотим наполнить ведро ? - "<< " ";
+  cin >> litri;
+  vedro.fill(litri);
+  cout << "Налили в ведро " << vedro.get_used() << " литр(а/ов)\n";
+  cout << "Выливаем всё из ведра" << "\n";
+  vedro.flush();
+  cout << "В ведре снова- " << vedro.get_used() << " литров\n";
+  return 0;
+  }
