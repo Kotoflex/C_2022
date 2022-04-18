@@ -1,33 +1,57 @@
+#include <stdio.h>
 #include <iostream>
+#include <cmath>
 using namespace std;
-#define N 10
-double SquaredSum(double x, double y)
-{
-	return (x + y)*(x + y);
-}
-void Sort(int a[N])
-{
-	int fl = 1;
-	//Сортировка пузырьком
-	while (fl)	//Продолжать пока флаг установлен
-	{
-		fl = 0;		//сбросить флаг
-		for (int i = 0; i<N - 1; i++)	//Очередной проход по массиву
-			if (a[i]<a[i + 1])		//Если текущий элемент меньше следующего
-			{
-				int tmp = a[i];		//поменять их местами
-				a[i] = a[i + 1];
-				a[i + 1] = tmp;
-				fl = 1;			//установить флаг
-			}
-	}
+double SquaredSum(double a, double b);//квадрат
+void Sort(int Array_s[10]);//сорт
+int main(void)
+{    
+ cout << "Напишите два числа, а мы покажем квадрат их суммы"<<"\n";   
+ double a;
+ double b;
+ cout << "введите первое число: "<<"\n";
+ cin >> a;
+ cout << "Введите второе число: "<<"\n";
+ cin >> b;
+ cout<<"Квадрат суммы введенных чисел: "<< SquaredSum(a, b)<<"\n"; 
 
+    cout << "Введите 10 элементов, а мы отсортируем их по убыванию"<<"\n";
+    int sortiruem[10], i;
+    for (int i = 0; i < 10; ++i)
+    {
+        cout << "Введите " << i+1 << "е число ";
+        cin >> sortiruem[i];
+        cin.sync();
+    }
+    cout << "Числа, отсортированные по убыванию " ;
+    for (int i = 0; i < 10; ++i)
+    {
+        printf(" %d", sortiruem[i]);
+    }
+    cout << "\n";
+    Sort(sortiruem);
+    for (int i = 0; i < 10; ++i)
+    {
+      printf(" %d", sortiruem[i]);
+    }
+  return 0;
 }
-int main()
+double SquaredSum(double a, double b) 
 {
-	cout << SquaredSum(12, 6) << "\n";
-	cout << SquaredSum(12, -6) << "\n";
-	int a[N] = { 1,8,3,6,5,4,9,2,8,12 };
-	Sort(a);
-	return 0;
+  return pow((a+b),2);//возводит в степень
+}
+void Sort(int Ar_s[10])//убывание 
+{
+    for(int i = 1; i < 10; ++i)
+    {
+        for(int r = 0; r < 10-i; r++)
+        {
+            if(Ar_s[r] < Ar_s[r+1])
+            {
+                int t = Ar_s[r];
+                Ar_s[r] = Ar_s[r+1];
+                Ar_s[r+1] = t;
+            }
+        }
+    }
 }
