@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+void Products(int a[], int N)
+{
+	for (int i = 0; i < N; i++)		//первый цикл
+	{
+		for (int j = 0; j < N; j++)	//второй цикл
+		{
+			cout.width(4);
+			cout << a[i] * a[j];	//вывод попарных произведений
+		}
+		cout << endl;
+	}
+}
+int main()
+{
+	int a[] = { 1, 2, 7 };
+	int b[] = { 6, 3, 6 ,1 };
+	int c[] = { 11, 5, 3, 13 };
+	Products(a, 3);
+	cout << endl;
+	Products(b, 4);
+	cout << endl;
+	Products(c, 4);
+	return 0;
+}
