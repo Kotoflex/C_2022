@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+class Student
+{
+	int tasks = 10;	//число заданий для получения зачета
+	int done = 0;	//число успешных заданий
+	int reputation = 0;	//начальная репутация
+public:
+	//запрашивает у пользователя чему равна сумма чисел a и b.
+	void send_code(int a, int b)
+	{
+		cout << "Чему равна сумма " << a << " + " << b << " = ";
+		int s;
+		cin >> s;
+		if (s == a + b)	//Если верный ответ
+		{
+			done++;			//количество сданных заданий
+			reputation++;	//и репутация увеличиваются на 1
+		}
+		else  //неверно
+		{
+			reputation--;	//репутация падает на 1.
+		}
+	}
+	Student()	//конструктор
+	{
+		cout << "Добро пожаловать на курс.Рассчитываю на вашу добросоветсную работу" << endl;
+	}
+	void examine()
+	{
+		if (done + reputation > tasks)	//если сумма done и reputation больше, чем tasks- Выводит сообщение "Вы получаете зачет по предмету" 
+		{	 
+			cout << "Вы получаете зачет по предмету" << endl;
+		}
+		else
+		{
+			cout << "Приходите на пересдачу" << endl; //в противном случае выводится "Приходите на пересдачу"
+		}
+	}
+};
+int main()
+{
+	Student st;
+	for (int i = 0; i < 1; i++)	//задать 10 вопросов
+	{
+		st.send_code(1,2);//примеры от 1 по 10
+		st.send_code(2,2);
+		st.send_code(3,2);
+		st.send_code(4,2);
+		st.send_code(5,2);
+		st.send_code(6,2);
+		st.send_code(7,2);
+		st.send_code(8,2);
+		st.send_code(9,2);
+		st.send_code(10,2);
+	}
+	st.examine();	//выводим вашу оценку
+	return 0;
+}
