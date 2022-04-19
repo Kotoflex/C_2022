@@ -1,1 +1,41 @@
-Скоро тут будет задание
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	int a, b,i;
+	char line[64];
+	int itog;
+	FILE *file;
+	FILE *fout=fopen("file","w");
+	printf("Введите первое число:");
+	scanf("%d", &a);
+	printf("Введите второе число, но большее, чем первое:");
+	scanf("%d", &b);
+	if (b<=a)
+	{
+		printf("Неверное условие, начинаем заново (второе число > первого)");
+		return 0;
+	}
+	for (i = a; i <= b; i++)
+	{
+		fprintf(fout, "%d\n",i*3);
+	}
+	fclose(fout);
+
+	file=fopen("file","r");
+	if (file!=NULL)
+	{
+		itog = 0;
+		printf("Полученные значения: \n");
+		while (fgets(line,sizeof(line), file))
+		{
+			if (line[strlen(line) - 1]=='\n')
+			{
+				line[strlen(line) - 1] = 0;
+			}
+			printf("%d. %s\n", ++itog, line);
+
+		}
+		fclose(file);
+	}
+}
